@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Mashed Potato</string>
+
+    <!-- PARSE VARIABLES -->
+    <string name="parse_application_id">MwmrHuJkkBJtpNQISaXQSFcdSnHkGvDaeRg109wc</string>
+    <string name="parse_client_key">rtLUtpUBpCZrpVPrplVkc32DSTqo6J4kxGMa41SI</string>
+
+    <!-- VIEW STRINGS -->
+    <string name="email_address">Email Address</string>
+    <string name="password">Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="login">LOGIN</string>
+    <string name="signup">SIGNUP</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="user_name">Username</string>
+</resources>
