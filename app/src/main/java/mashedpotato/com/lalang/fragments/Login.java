@@ -1,6 +1,7 @@
 package mashedpotato.com.lalang.fragments;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -10,6 +11,12 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.facebook.CallbackManager;
+import com.facebook.FacebookCallback;
+import com.facebook.FacebookException;
+import com.facebook.FacebookSdk;
+import com.facebook.login.LoginResult;
+import com.facebook.login.widget.LoginButton;
 import com.parse.LogInCallback;
 import com.parse.ParseException;
 import com.parse.ParseUser;
@@ -33,6 +40,8 @@ public class Login extends RoboFragment implements View.OnClickListener {
     Button btnLogin;
     @InjectView(R.id.login_btn_signup)
     Button btnSignup;
+    @InjectView(R.id.login_btn_fb)
+    LoginButton btnLoginFb;
 
     private OnFragmentInteractionListener fragmentListener;
 
@@ -45,6 +54,8 @@ public class Login extends RoboFragment implements View.OnClickListener {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         RoboGuice.getInjector(getActivity()).injectMembersWithoutViews(this);
+
+        FacebookSdk.sdkInitialize(getActivity().getApplicationContext());
     }
 
     @Override
@@ -59,6 +70,27 @@ public class Login extends RoboFragment implements View.OnClickListener {
         RoboGuice.getInjector(getActivity()).injectMembersWithoutViews(this);
         btnSignup.setOnClickListener(this);
         btnLogin.setOnClickListener(this);
+        btnLoginFb.setReadPermissions("user_friends");
+        btnLoginFb.setFragment(this);
+
+        CallbackManager callbackManager = CallbackManager.Factory.create();
+
+        btnLoginFb.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
+            @Override
+            public void onSuccess(LoginResult loginResult) {
+                Log.e("facebook success", loginResult.);
+            }
+
+            @Override
+            public void onCancel() {
+                Log.e("facebook cancel", "");
+            }
+
+            @Override
+            public void onError(FacebookException exception) {
+                Log.e("facebook error", exception.getMessage());
+            }
+        });
     }
 
     @Override

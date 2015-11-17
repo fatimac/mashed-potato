@@ -1,9 +1,10 @@
 <resources>
     <string name="app_name">Mashed Potato</string>
 
-    <!-- PARSE VARIABLES -->
+    <!-- APPLICATION KEYS -->
     <string name="parse_application_id">MwmrHuJkkBJtpNQISaXQSFcdSnHkGvDaeRg109wc</string>
     <string name="parse_client_key">rtLUtpUBpCZrpVPrplVkc32DSTqo6J4kxGMa41SI</string>
+    <string name="facebook_app_id">743640622439703</string>
 
     <!-- VIEW STRINGS -->
     <string name="email_address">Email Address</string>
